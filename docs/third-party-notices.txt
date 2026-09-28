@@ -1,0 +1,13 @@
+Lieflat Charts / web-presentation-charts
+Creator: 躺在废墟里
+
+Chart patterns adapted for this noncommercial academic research website:
+F5 Tick Rows, F12 Dumbbell Queue, F1 Rung Bars.
+Adapted rendering code: assets/site.js; chart-related styles: assets/site.css.
+
+License: PolyForm Noncommercial License 1.0.0
+https://polyformproject.org/licenses/noncommercial/1.0.0/
+
+The website uses no Chart.js, ECharts, hosted web fonts or other chart-runtime
+packages. The supplied SimpleARM teaser and recorded task images belong to
+the project and are not part of the Lieflat Charts templates.
