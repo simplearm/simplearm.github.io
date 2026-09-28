@@ -23,7 +23,7 @@ suite_tasks={
  'Reference':['PickHighlight','VideoRepick','VideoPlaceButton','VideoPlaceOrder'],
  'Imitation':['MoveCube','InsertPeg','PatternLock','RouteStick']}
 suite_descriptions={
- 'Overall':'All 16 memory-dependent tasks, with 50 episodes per task and three policy seeds.',
+ 'Overall':'All 16 memory-dependent tasks.',
  'Counting':'Remember accumulated events and interaction progress. Counting remains the most uneven suite.',
  'Permanence':'Keep track of an object after it is hidden, including when its container moves.',
  'Reference':'Resolve a later instruction using the identity or order of an earlier demonstration.',
@@ -77,7 +77,7 @@ data={
  'method':'SimpleARM','main':{'mean':main['statistics']['mean'],'sd':main['statistics']['sample_sd'],'sem':main['statistics']['sem'],'episodes':2400,'seeds':[{k:r[k] for k in ['seed','valid','successes','full_percent']} for r in main['runs']]},
  'suites':suites,'tasks':records,'ablations':ablations,'recent':{'summary':read(recent/'summary.json'),'seeds':read(recent/'per_seed.json')},
  'trace':trace,
- 'sources':{'baselines':'RoboMME published results, reproduced in the SimpleARM draft Table 1.','baselines_url':'https://arxiv.org/abs/2603.04639','results_commit':'87dffab95778ac098ebd9f556bd4180749e33f98','results_url':'https://github.com/ZhangYuyou-10/agent_robomme_code/tree/tool-explore-final/results','trace':'ButtonUnmaskSwap, seed 7, episode 47; qualitative replication. Pixel + DINO + flow active; SAM unavailable on this rollout host.','table_sha256':hashlib.sha256(paper.read_bytes()).hexdigest(),'teaser_sha256':hashlib.sha256((root/'figure_design/SimpleARM_Five_Vector_SVG/web_teaser.svg').read_bytes()).hexdigest()}}
+ 'sources':{'baselines':'RoboMME published results, reproduced in the SimpleARM draft Table 1.','baselines_url':'https://arxiv.org/abs/2603.04639','results_commit':'87dffab95778ac098ebd9f556bd4180749e33f98','results_url':'https://github.com/ZhangYuyou-10/agent_robomme_code/tree/tool-explore-final/results','trace':'ButtonUnmaskSwap, seed 7, episode 47; qualitative replication. Pixel + DINO + flow active; SAM unavailable on this rollout host.','table_sha256':hashlib.sha256(paper.read_bytes()).hexdigest(),'teaser_sha256':hashlib.sha256((root/'figure_design/SimpleARM_Five_Vector_SVG/web_teaser.svg').read_bytes()).hexdigest(),'teaser_png_sha256':hashlib.sha256((out.parent/'images/web_teaser.png').read_bytes()).hexdigest(),'workflow_pdf_sha256':hashlib.sha256((root/'overleaf/6aab6fa794f50fc34daef8e5/figures/workflow_1.pdf').read_bytes()).hexdigest(),'workflow_png_sha256':hashlib.sha256((out.parent/'images/workflow.png').read_bytes()).hexdigest()}}
 (out/'results.json').write_text(json.dumps(data,indent=2)+'\n')
 # Also usable when index.html is opened directly from disk.
 (out/'results.js').write_text('window.SIMPLEARM_DATA = '+json.dumps(data,separators=(',',':'))+';\n')

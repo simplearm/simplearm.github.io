@@ -24,14 +24,15 @@ The numbers are built from the archived SimpleARM results, not transcribed from 
 
 - FrameSamp + ModuL, trained with Recent4/16/32 and evaluated with the matching strategy.
 - One trained checkpoint (final 79999, training seed 42) per setting; evaluation seeds 7, 11 and 23, each with 800 episodes.
-- The chart reports evaluation-seed mean and sample SD, not three independent training runs. SEM and individual rounds are included in downloads.
+- The chart reports evaluation-seed mean and sample SD, not three independent training runs. SEM and individual rounds are retained in the repository data.
 - Evaluation hosts differ between some rounds. The archived CSV keeps actual host labels; the page does not claim hardware effects were isolated.
 - Recent8 is separate: one seed7 evaluation, 211/800 = 26.375%, from a 70k EMA warm start with an optimizer reset. It is disclosed in the evaluation details, not mixed into the three-seed chart.
 - Earlier inference-only Recent sampling on Uniform-trained weights is a different experiment and is not mixed with these values.
 
 ## Recorded example and teaser
 
-- The supplied `web_teaser.svg` is a conceptual website illustration, retained byte-for-byte.
+- The supplied `web_teaser.svg` is rendered as `web_teaser.png` at 3200px width with no content changes. Its original SVG SHA256 and rendered PNG SHA256 are recorded in the data.
+- The method figure is rendered from the paper’s actual `workflow_1.pdf` at 3200px width, accompanied by its original caption. Both source and rendered image hashes are recorded.
 - The walkthrough uses existing camera crops for ButtonUnmaskSwap, seed 7, episode 47, from the documented qualitative replication. Success occurred at step 596; the final displayed crop is step 580.
 - Target markers are explanatory overlays using recorded proposal and memory-read coordinates, adjusted for the crop's 15-pixel vertical offset. A composer proposal is not a separate baseline rollout.
 - Pixel verification, DINO identity features and optical flow were available in this trace; SAM was unavailable. The generic method section shows the broader toolbox, while the example names only operations documented for this trace.

@@ -29,7 +29,7 @@
   "suites": [
     {
       "name": "Overall",
-      "description": "All 16 memory-dependent tasks, with 50 episodes per task and three policy seeds.",
+      "description": "All 16 memory-dependent tasks.",
       "tasks": 16,
       "no_memory": 32.7,
       "memer": 42.37,
@@ -861,6 +861,9 @@
     "results_url": "https://github.com/ZhangYuyou-10/agent_robomme_code/tree/tool-explore-final/results",
     "trace": "ButtonUnmaskSwap, seed 7, episode 47; qualitative replication. Pixel + DINO + flow active; SAM unavailable on this rollout host.",
     "table_sha256": "8e396a59da9d8c10337f0ec54d091c1c1754dc57881a17b05a6d05d4c0d99790",
-    "teaser_sha256": "2bb86036f390252fe9cfcac03996855b3dd57045b7c35ac7bebd8c4ce5f3529a"
+    "teaser_sha256": "2bb86036f390252fe9cfcac03996855b3dd57045b7c35ac7bebd8c4ce5f3529a",
+    "teaser_png_sha256": "56b56de9484cff07d8f4ca67426ee152077c22427febf50c77027775883b2545",
+    "workflow_pdf_sha256": "894590e77ee0963d4ce1ae3ba92210c5e4466adfc8f59cc87ad28eb2bd429b0b",
+    "workflow_png_sha256": "57dd85ad8676a7e003db10f7af020d1a381fb75723b749c9ba564d92027600ca"
   }
 }

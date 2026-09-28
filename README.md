@@ -2,7 +2,7 @@
 
 A static academic project page for **Simple Agentic Memory for Generalist Robot Policies**, designed for GitHub Pages at <https://simplearm.github.io>.
 
-The page preserves the original site's typography, centered author block, restrained palette and automatic dark mode. It adds the supplied website teaser, a seven-moment recorded task walkthrough, interactive benchmark and ablation charts, Recent sampling results, and downloadable data.
+The page preserves the original site's typography, centered author block, restrained palette and automatic dark mode. It adds the supplied website teaser, a seven-moment recorded task walkthrough, interactive benchmark and ablation charts, Recent sampling results, the paper’s workflow figure and caption, and a short conclusion.
 
 ## Preview
 
@@ -12,21 +12,22 @@ No package installation or build service is needed:
 python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Open <http://127.0.0.1:8765>. The site also works by opening `index.html` directly; the chart data is provided as a local JavaScript asset as well as downloadable JSON.
+Open <http://127.0.0.1:8765>. The site also works by opening `index.html` directly; the chart data is provided as a local JavaScript asset with the underlying JSON retained in the repository.
 
 ## Content and data
 
-- `index.html`: English project narrative, method, experiment scope and download links.
+- `index.html`: English project narrative, method, experiment scope and conclusion.
 - `assets/site.css`: responsive layout, system/explicit light and dark themes, reduced-motion support.
 - `assets/site.js`: dependency-free SVG charts and the recorded episode walkthrough.
-- `assets/images/web_teaser.svg`: supplied website-only teaser, copied without changes.
+- `assets/images/web_teaser.png`: faithful PNG conversion of the supplied website-only teaser.
+- `assets/images/workflow.png`: PNG rendering of the paper’s `workflow_1.pdf`; its original caption appears in the method section.
 - `assets/images/panel_*.png`: seven front-camera crops from the documented qualitative ButtonUnmaskSwap trace.
 - `assets/data/results.json`: all chart values, settings, trace captions and source references.
 - `assets/data/*.csv`: task-level benchmark, matched ablations and Recent evaluation summaries.
 - `docs/data-notes.md`: provenance and interpretation of the three experiment families.
 - `docs/design-notes.md`: chart selection and interaction design.
 
-The website does not package raw logs, checkpoints, credentials or server paths. The public result archive is linked for episode-level data. The paper link remains “coming soon” until a public manuscript URL is provided.
+The website does not package raw logs, checkpoints, credentials or server paths. Structured source data remains in the repository for reproducibility; the website has no JSON/CSV download links. The paper link remains “coming soon” until a public manuscript URL is provided.
 
 ## Rebuild and validate
 
@@ -43,7 +44,7 @@ python3 scripts/validate.py
 node --check assets/site.js
 ```
 
-Manual browser checks cover the suite tabs (including Counting's negative difference), both ablation groups, Recent seed switching, the trace slider and playback, data downloads, theme toggling and narrow-screen layout.
+Manual browser checks cover the suite tabs (including Counting's negative difference), both ablation groups, Recent seed switching, the trace slider and playback, the workflow caption, theme toggling and narrow-screen layout.
 
 ## Credits
 

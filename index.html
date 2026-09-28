@@ -10,16 +10,16 @@
   <meta property="og:description" content="Remember task-relevant state. Recall it when action needs it. 67.17% mean success across 16 RoboMME tasks.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://simplearm.github.io/">
-  <link rel="stylesheet" href="assets/site.css?v=1">
-  <script defer src="assets/data/results.js?v=1"></script>
-  <script defer src="assets/site.js?v=1"></script>
+  <link rel="stylesheet" href="assets/site.css?v=2">
+  <script defer src="assets/data/results.js?v=2"></script>
+  <script defer src="assets/site.js?v=2"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <nav class="nav wrap" aria-label="Main navigation">
     <a class="wordmark" href="#top">Simple<span>ARM</span><span class="brand-dot" aria-hidden="true"></span></a>
-    <div class="nav-links"><a href="#method">Method</a><a href="#example">In action</a><a href="#results">Results</a><a href="#data">Data <span aria-hidden="true">↗</span></a></div>
+    <div class="nav-links"><a href="#method">Method</a><a href="#example">In action</a><a href="#results">Results</a><a href="#conclusion">Conclusion</a></div>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme"><span aria-hidden="true">◐</span></button>
   </nav>
 </header>
@@ -33,20 +33,17 @@
     <p class="contribution"><sup>*</sup>Equal contribution</p>
     <div class="hero-actions"><a class="button primary" href="#results">Explore the results <span aria-hidden="true">↓</span></a><a class="button" href="https://github.com/simplearm/SimpleARM">GitHub <span aria-hidden="true">↗</span></a><span class="release-note">Paper coming soon</span></div>
     <figure class="teaser">
-      <a href="assets/images/web_teaser.svg" target="_blank" rel="noopener" aria-label="Open the website teaser at full size">
-        <img src="assets/images/web_teaser.svg" width="3840" height="1600" fetchpriority="high" alt="SimpleARM illustration: observe an orange mug, maintain its identity, relations, progress and route, then recall and locate the relevant object before acting.">
-      </a>
-      <figcaption>Remember the state that matters for the next action.<span> Conceptual illustration · <a href="assets/images/web_teaser.svg" target="_blank" rel="noopener">View full size ↗</a></span></figcaption>
+      <img src="assets/images/web_teaser.png" width="3200" height="1333" fetchpriority="high" alt="SimpleARM illustration: observe an orange mug, maintain its identity, relations, progress and route, then recall and locate the relevant object before acting.">
+      <figcaption>Remember the state that matters for the next action.<span> Conceptual illustration</span></figcaption>
     </figure>
-    <div class="headline-stats" aria-label="Key results">
-      <div><strong>67.17<span>%</span></strong><p>mean success on RoboMME</p><small>3 seeds · 2,400 episodes</small></div>
-      <div><strong>+22.66<span>pp</span></strong><p>over published FrameSamp</p><small>all 16 tasks</small></div>
-      <div><strong>0</strong><p>additional training for memory</p><small>frozen composer &amp; VLA policy</small></div>
-    </div>
   </section>
 
   <section class="section wrap" id="method" aria-labelledby="method-title">
     <div class="section-heading"><p class="eyebrow">01 / The idea</p><h2 id="method-title">Remember state.<br>Not just frames.</h2><p>A current image cannot tell a robot which object was hidden, how many actions it has completed, or which route it saw earlier. SimpleARM keeps this task-relevant history available for control.</p></div>
+    <figure class="workflow-figure" id="workflow">
+      <img src="assets/images/workflow.png" width="3200" height="1537" loading="lazy" alt="SimpleARM workflow from the paper: plan which historical state to remember, maintain cube-to-container bindings with frozen perception tools, and recall the relevant binding to ground each pick subgoal for the frozen VLA.">
+      <figcaption><strong>SimpleARM overview.</strong> Given the instruction, SimpleARM first specifies what historical state may be needed, then maintains that state online with frozen perception and event tools, and retrieves it only when the current subgoal depends on interaction history. Retrieved memory resolves historical identity, progress, or procedure; current perception provides any required spatial grounding, and the resulting memory-conditioned grounded subgoal is executed by the frozen VLA.</figcaption>
+    </figure>
     <div class="method-grid">
       <article><span class="step-no">01</span><h3>Decide what to remember</h3><p>A vision–language model reads the instruction and proposes the identities, progress and procedures that may matter later.</p><div class="method-example"><span class="small-label">Instruction → memory plan</span>“Pick the container hiding the green cube.”<br><strong>Watch the cube–container relation.</strong></div></article>
       <article><span class="step-no">02</span><h3>Maintain it with tools</h3><p>Frozen perception and event tools verify observations and update compact memory as the robot and its surroundings move.</p><div class="tool-list" aria-label="Memory tools"><span>Detection</span><span>Identity</span><span>Optical flow</span><span>Masks</span><span>Events</span><span>Routes</span></div></article>
@@ -86,11 +83,11 @@
         <div class="suite-controls" id="suite-controls" role="group" aria-label="Benchmark suite"><button type="button" data-suite="Overall" aria-pressed="true">All tasks</button><button type="button" data-suite="Permanence" aria-pressed="false">Permanence</button><button type="button" data-suite="Reference" aria-pressed="false">Reference</button><button type="button" data-suite="Counting" aria-pressed="false">Counting</button><button type="button" data-suite="Imitation" aria-pressed="false">Imitation</button></div>
         <div class="chart-scroll"><svg id="benchmark-chart" viewBox="0 0 730 300" role="img" aria-label="Overall success: no memory 32.70%, MemER 42.37%, FrameSamp 44.51%, SimpleARM 67.17%."></svg></div>
         <p class="scroll-hint">Swipe to see the complete chart →</p>
-        <p class="chart-source">SimpleARM: 3 seeds, 50 episodes per task per seed. Baselines: <a href="https://arxiv.org/abs/2603.04639">published RoboMME results ↗</a>.</p>
+        <p class="chart-source">SimpleARM: mean over 3 seeds. Baselines: <a href="https://arxiv.org/abs/2603.04639">published RoboMME results ↗</a>.</p>
       </div>
-      <aside class="result-insight" aria-live="polite"><p class="small-label" id="suite-label">All 16 tasks</p><p class="insight-number" id="suite-delta">+22.66<span>pp</span></p><h3 id="suite-insight-title">over published FrameSamp</h3><p id="suite-description">All 16 memory-dependent tasks, with 50 episodes per task and three policy seeds.</p><div class="seed-strip"><span class="small-label">SimpleARM · overall by seed</span><dl><div><dt>Seed 7</dt><dd>67.75%</dd></div><div><dt>Seed 11</dt><dd>68.00%</dd></div><div><dt>Seed 23</dt><dd>65.75%</dd></div></dl><small>Sample SD 1.23 pp · SEM 0.71 pp</small></div></aside>
+      <aside class="result-insight" aria-live="polite"><p class="small-label" id="suite-label">All 16 tasks</p><p class="insight-number" id="suite-delta">+22.66<span>pp</span></p><h3 id="suite-insight-title">over published FrameSamp</h3><p id="suite-description">All 16 memory-dependent tasks.</p><p class="aggregate-note">Averaged over 3 seeds.</p></aside>
     </div>
-    <details class="data-details"><summary>Explore all 16 task results <span aria-hidden="true">+</span></summary><div class="table-scroll"><table><caption>Three-seed success rates (%). Baselines are published results; SimpleARM values come from archived outcomes.</caption><thead><tr><th scope="col">Suite</th><th scope="col">Task</th><th scope="col">No memory</th><th scope="col">MemER</th><th scope="col">FrameSamp</th><th scope="col">SimpleARM</th></tr></thead><tbody id="task-table"></tbody></table></div><a class="text-link" href="assets/data/benchmark.csv" download>Download task results · CSV ↓</a></details>
+    <details class="data-details"><summary>Explore all 16 task results <span aria-hidden="true">+</span></summary><div class="table-scroll"><table><caption>Mean success over 3 seeds (%). Baselines are published results; SimpleARM values come from archived outcomes.</caption><thead><tr><th scope="col">Suite</th><th scope="col">Task</th><th scope="col">No memory</th><th scope="col">MemER</th><th scope="col">FrameSamp</th><th scope="col">SimpleARM</th></tr></thead><tbody id="task-table"></tbody></table></div></details>
     <p class="section-note">System-level comparison with published baselines. Gains vary by task: Counting remains a limitation, including 0% on StopCube. The added memory receives no training; the pretrained policies use RoboMME’s existing checkpoints.</p>
   </section>
 
@@ -99,19 +96,27 @@
     <div class="chart-card ablation-card"><div class="chart-header"><div><h3>Matched full method vs. ablation</h3><p class="chart-sub"><span class="legend-dot"></span> Full method <span class="legend-hollow"></span> Ablation · success (%)</p></div><div class="segmented" role="group" aria-label="Ablation group"><button type="button" data-ablation="state" aria-pressed="true">Maintained state</button><button type="button" data-ablation="access" aria-pressed="false">Memory access</button></div></div>
     <div class="chart-scroll"><svg id="ablation-chart" viewBox="0 0 1000 420" role="img" aria-label="Six memory-state ablations and their paired full-method controls."></svg></div><p class="scroll-hint">Swipe to see the complete chart →</p><p class="chart-source">800 same-host, same-seed, same-task, same-episode pairs per row · seed 11. Each bead between endpoints = 1 pp of difference.</p></div>
     <div class="finding-grid"><article><h3>Maintain the history</h3><p>Removing route memory lowers full-benchmark success by <strong>11.50 pp</strong>; removing demonstration references lowers it by <strong>9.13 pp</strong>.</p></article><article><h3>Read it selectively</h3><p>Replacing structured retrieval with a VLM decision at every proposed subgoal lowers success by <strong>11.88 pp</strong>.</p></article><article><h3>Keep the mixed results visible</h3><p>Changing the source to received frames gives <strong>0.00 pp</strong> aggregate change. The table does not show that every component helps every task.</p></article></div>
-    <details class="data-details"><summary>All 10 ablations and exact matched effects <span aria-hidden="true">+</span></summary><div class="table-scroll"><table><caption>Δ = ablation − matched full method, in percentage points. Each row has 800 pairs.</caption><thead><tr><th scope="col">Intervention</th><th scope="col">Full (%)</th><th scope="col">Ablation (%)</th><th scope="col">Δ (pp)</th></tr></thead><tbody id="ablation-table"></tbody></table></div><a class="text-link" href="assets/data/ablations.csv" download>Download ablations · CSV ↓</a></details>
+    <details class="data-details"><summary>All 10 ablations and exact matched effects <span aria-hidden="true">+</span></summary><div class="table-scroll"><table><caption>Δ = ablation − matched full method, in percentage points. Each row has 800 pairs.</caption><thead><tr><th scope="col">Intervention</th><th scope="col">Full (%)</th><th scope="col">Ablation (%)</th><th scope="col">Δ (pp)</th></tr></thead><tbody id="ablation-table"></tbody></table></div></details>
     <p class="section-note">The matched control varies by row because outcomes are matched to their actual execution host. These are single-seed interventions; component effects overlap and should not be added together.</p>
   </div></section>
 
   <section class="section wrap" id="sampling" aria-labelledby="sampling-title">
-    <div class="sampling-layout"><div class="section-heading"><p class="eyebrow">05 / A closer look at visual history</p><h2 id="sampling-title">What if we just keep<br>the recent frames?</h2><p>We also fine-tune and evaluate RoboMME’s <strong>FrameSamp + ModuL</strong> with the same Recent-N strategy at training and test time.</p><p>Recent32 has the highest observed mean of these three settings. This is a separate family of trained models from SimpleARM.</p><a class="text-link" href="assets/data/recent_summary.csv" download>Download three-seed summary ↓</a></div>
+    <div class="sampling-layout"><div class="section-heading"><p class="eyebrow">05 / A closer look at visual history</p><h2 id="sampling-title">What if we just keep<br>the recent frames?</h2><p>We also fine-tune and evaluate RoboMME’s <strong>FrameSamp + ModuL</strong> with the same Recent-N strategy at training and test time.</p><p>Recent32 has the highest observed mean of these three settings. This is a separate family of trained models from SimpleARM.</p></div>
     <div class="chart-card recent-card"><div class="chart-header"><div><h3>Matched Recent training &amp; evaluation</h3><p class="chart-sub">Success (%) · one rung = 1 pp</p></div><label class="select-label" for="recent-seed">Show<select id="recent-seed" aria-label="Evaluation seed"><option value="mean">3-seed mean</option><option value="7">Seed 7</option><option value="11">Seed 11</option><option value="23">Seed 23</option></select></label></div><svg id="recent-chart" viewBox="0 0 480 340" role="img" aria-label="Recent4: 27.50%, Recent16: 30.71%, Recent32: 31.50%; means over three evaluation seeds."></svg><p class="chart-source" id="recent-caption">Whiskers: ±1 sample SD across three evaluation seeds. One training seed (42) and one fixed final checkpoint per setting.</p></div></div>
-    <details class="evidence-note"><summary>Evaluation details and Recent8</summary><p>Recent4/16/32 each use evaluation seeds 7, 11 and 23, for 7,200 episodes in total. Some evaluation rounds ran on different hosts, so host effects are not isolated. Recent8 has one completed seed7 evaluation: 211/800 (26.375%). Its evaluated checkpoint used a 70k EMA warm start and reset optimizer; it is not included in the three-seed chart. Earlier inference-only Recent interventions on Uniform-trained weights are a separate experiment.</p><a href="assets/data/recent_per_seed.csv" download>Download all nine rounds · CSV ↓</a></details>
+    <details class="evidence-note"><summary>Evaluation details and Recent8</summary><p>Recent4/16/32 each use evaluation seeds 7, 11 and 23, for 7,200 episodes in total. Some evaluation rounds ran on different hosts, so host effects are not isolated. Recent8 has one completed seed7 evaluation: 211/800 (26.375%). Its evaluated checkpoint used a 70k EMA warm start and reset optimizer; it is not included in the three-seed chart. Earlier inference-only Recent interventions on Uniform-trained weights are a separate experiment.</p></details>
   </section>
 
-  <section class="section data-section" id="data" aria-labelledby="data-title"><div class="wrap data-layout"><div><p class="eyebrow">06 / Explore the evidence</p><h2 id="data-title">The numbers,<br>with their context.</h2><p>Download the chart data, inspect individual tasks, or visit the experiment archive for episode-level results and provenance.</p></div><div class="resource-list"><a href="assets/data/results.json" download><span><strong>Website data</strong><small>All chart values, settings and source references</small></span><span>JSON ↓</span></a><a href="assets/data/benchmark.csv" download><span><strong>Benchmark results</strong><small>All 16 tasks and four methods</small></span><span>CSV ↓</span></a><a href="assets/data/ablations.csv" download><span><strong>Component ablations</strong><small>Ten full-benchmark matched comparisons</small></span><span>CSV ↓</span></a><a href="https://github.com/ZhangYuyou-10/agent_robomme_code/tree/tool-explore-final/results"><span><strong>Full result archive</strong><small>Episode outcomes, configuration and provenance</small></span><span>GitHub ↗</span></a></div></div></section>
-  <noscript><div class="wrap noscript-note">The headline results and method are available without JavaScript. Enable JavaScript to explore the charts and walkthrough, or download the JSON/CSV files above.</div></noscript>
+  <section class="section conclusion-section" id="conclusion" aria-labelledby="conclusion-title">
+    <div class="wrap conclusion-content">
+      <p class="eyebrow">06 / Conclusion</p>
+      <h2 id="conclusion-title">Remember what matters.<br>Bring it back to action.</h2>
+      <p>SimpleARM turns interaction history into compact, task-relevant state. A memory plan decides what to retain, frozen tools maintain it as the world changes, and selective retrieval brings it back when a subgoal needs the past.</p>
+      <p>This simple, training-free memory layer helps frozen robot policies act on identities, progress and procedures that the current image alone cannot reveal.</p>
+      <div class="conclusion-principles"><span>Task-conditioned</span><span>Tool-maintained</span><span>Recalled on demand</span></div>
+    </div>
+  </section>
+  <noscript><div class="wrap noscript-note">The method, workflow and result summaries are available without JavaScript. Enable JavaScript to explore the charts and walkthrough.</div></noscript>
 </main>
-<footer class="wrap footer"><a class="wordmark" href="#top">Simple<span>ARM</span></a><p>Simple Agentic Memory for Generalist Robot Policies</p><a href="https://github.com/simplearm/SimpleARM">Code ↗</a><a href="docs/third-party-notices.txt">Credits</a></footer>
+<footer class="wrap footer"><a class="wordmark" href="#top">Simple<span>ARM</span></a><p>Simple Agentic Memory for Generalist Robot Policies</p><a href="https://github.com/simplearm/SimpleARM">Code ↗</a></footer>
 </body>
 </html>

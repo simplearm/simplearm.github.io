@@ -4,7 +4,7 @@
 
 `python3 scripts/validate.py`, `node --check assets/site.js` and `git diff --check` passed.
 
-The data check recomputes the main three-seed mean, sample SD and SEM; checks all suite means; verifies ten ablation deltas against both endpoint rates and discordant-pair counts; recomputes all Recent mean/SD/SEM values from the nine evaluation rounds; checks CSV/JSON parity; checks local links, unique HTML IDs and all seven image paths; and verifies the supplied teaser's SHA256.
+The data check recomputes the main three-seed mean, sample SD and SEM; checks all suite means; verifies ten ablation deltas against both endpoint rates and discordant-pair counts; recomputes all Recent mean/SD/SEM values from the nine evaluation rounds; checks CSV/JSON parity; checks local links, unique HTML IDs and all seven image paths; and verifies the teaser and workflow PNG SHA256 values.
 
 The generated public assets were checked for private keys and machine filesystem roots. The page packages only the requested teaser, clean task-image crops and structured display data. No raw log bundle, checkpoint or authentication material is included.
 
@@ -23,3 +23,11 @@ Verified in the Codex in-app browser:
 - No new browser console errors appeared during page reload and interaction checks. An older browser-side message from before the website build remained in the tab's cumulative log.
 
 The reduced-motion CSS disables chart animation and smooth scrolling. No autoplay or external runtime dependency is present.
+
+## Requested website revision
+
+- Rendered the supplied teaser SVG as a 3200 × 1333 PNG and the paper's actual `workflow_1.pdf` as a 3200 × 1537 PNG. Both were visually inspected.
+- Compared the workflow caption in the page with `sections/method.tex`; the text matches exactly.
+- Confirmed the hero has no linked teaser or statistic strip, the benchmark sidebar has no individual-seed scores, and the complete page has zero download links.
+- Verified the short Conclusion, preserved three-step method explanation and walkthrough, and unchanged ablation/Recent charts.
+- Checked the added figure at desktop and 390px mobile widths: no document overflow. Main-result controls still update the signed comparison correctly.

@@ -8,9 +8,6 @@ Adapted rendering code: assets/site.js; chart-related styles: assets/site.css.
 License: PolyForm Noncommercial License 1.0.0
 https://polyformproject.org/licenses/noncommercial/1.0.0/
 
-Attribution requested by the creator:
-本 skill 由“躺在废墟里”开发，若公开分发内容请署名或@开发者。
-
 The website uses no Chart.js, ECharts, hosted web fonts or other chart-runtime
 packages. The supplied SimpleARM teaser and recorded task images belong to
 the project and are not part of the Lieflat Charts templates.

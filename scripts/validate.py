@@ -50,7 +50,8 @@ for frame in data['trace']:
     assert (root / frame['image']).is_file()
     for marker in frame.get('annotations', []):
         assert 0 <= marker['x'] <= 100 and 0 <= marker['y'] <= 100
-assert hashlib.sha256((root / 'assets/images/web_teaser.svg').read_bytes()).hexdigest() == data['sources']['teaser_sha256']
+for image, key in [('web_teaser.png', 'teaser_png_sha256'), ('workflow.png', 'workflow_png_sha256')]:
+    assert hashlib.sha256((root / 'assets/images' / image).read_bytes()).hexdigest() == data['sources'][key]
 
 class Page(HTMLParser):
     def __init__(self):

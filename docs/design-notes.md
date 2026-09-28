@@ -24,6 +24,10 @@ The charts adapt the data encodings and SVG construction patterns from the selec
 - Ablations switch between maintained state and memory access; an exact table includes all ten rows.
 - Recent results switch between the mean and three individual evaluation seeds.
 - The real task sequence is scrubbed with a keyboard-operable range input and seven labelled moment buttons. Optional playback stops at the final moment, on manual selection, or when the page is hidden.
-- Charts include descriptive SVG titles/labels and downloadable data. Native controls, visible focus indicators, a skip link and table headers provide keyboard/accessibility support.
+- Charts include descriptive SVG titles/labels and exact in-page tables. Native controls, visible focus indicators, a skip link and table headers provide keyboard/accessibility support.
 - Animations are short reveals, respect reduced-motion settings and never alter values. No automatic video playback.
 - On narrow screens the layout stacks; dense benchmark/ablation charts and tables scroll inside their own container instead of widening the page.
+
+## Website simplification
+
+The hero now uses a non-clickable PNG teaser without a statistic strip. The method section includes the actual paper workflow and caption before the three-step explanation. The benchmark sidebar shows aggregate improvement over three seeds without individual seed scores. Download links are removed throughout, and a concise conclusion replaces the resources section.
