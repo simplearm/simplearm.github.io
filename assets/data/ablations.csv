@@ -1,0 +1,11 @@
+arm,episodes,percent,control_percent,delta_pp,improved,worsened,label,group,description
+retrieval_agent,800,55.5,67.375,-11.875,28,123,VLM-driven retrieval,access,Replace structured access with a VLM decision at each proposed subgoal.
+no_live_tracking,800,61.625,67.5,-5.875,42,89,No live tracking,state,Remove online tracking of object-to-container bindings.
+no_demo_follow,800,64.875,67.75,-2.875,42,65,No demonstration following,state,Remove updates that follow demonstrated identities during execution.
+no_demo_notes,800,62.375,67.75,-5.375,38,81,No demonstration notes,state,Remove memory notes established from the demonstration.
+no_demo_references,800,58.125,67.25,-9.125,43,116,No demonstration references,state,Remove historical references used to identify demonstrated targets.
+no_route_memory,800,56.25,67.75,-11.5,24,116,No route memory,state,Remove stored routes and ordered procedural state.
+no_flash_count,800,62.625,67.625,-5.0,40,80,No flash counting,state,Remove accumulated flash-event counts.
+refine_every_verb,800,65.375,67.375,-2.0,47,63,Refine every subgoal,access,Enable refinement for every verb instead of selective access.
+source_from_frames,800,67.25,67.25,0.0,44,44,Source from received frames,access,Use the received-frame source instead of the agent-selected source.
+write_plan_single_vote,800,64.625,67.625,-3.0,39,63,Single-vote write plan,access,Use one write-plan vote; the independent reader compiler retains three votes.

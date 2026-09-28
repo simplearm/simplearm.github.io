@@ -1,0 +1,17 @@
+task,suite,no_memory,memer,framesamp,simplearm
+BinFill,Counting,52.0,56.7,39.6,60
+PickXtimes,Counting,92.7,79.3,87.3,91.33333333333333
+SwingXtimes,Counting,7.3,59.3,92.0,76.66666666666667
+StopCube,Counting,0.0,0.0,42.0,0
+VideoUnmask,Permanence,88.7,81.3,32.7,96
+ButtonUnmask,Permanence,24.0,72.0,25.1,82
+VideoUnmaskSwap,Permanence,30.7,38.0,24.4,80
+ButtonUnmaskSwap,Permanence,14.0,21.3,18.2,56.666666666666664
+PickHighlight,Reference,15.3,70.7,22.9,66
+VideoRepick,Reference,25.3,25.3,30.4,78
+VideoPlaceButton,Reference,54.0,30.0,60.0,82
+VideoPlaceOrder,Reference,31.8,26.0,32.0,88
+MoveCube,Imitation,71.6,82.7,77.8,67.33333333333333
+InsertPeg,Imitation,3.3,6.7,7.6,4
+PatternLock,Imitation,6.7,16.7,53.6,93.33333333333333
+RouteStick,Imitation,6.0,12.0,66.7,53.333333333333336

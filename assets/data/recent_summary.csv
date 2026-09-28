@@ -1,0 +1,4 @@
+frames,evaluation_seeds,training_seed,episodes,mean_percent,sample_sd_pp,sem_pp,same_training_checkpoint,cross_host_eval_seeds
+4,"7,11,23",42,2400,27.5,1.3919410907075054,0.8036375634160796,True,True
+16,"7,11,23",42,2400,30.708333333333332,0.4732423621500228,0.27322660517925,True,True
+32,"7,11,23",42,2400,31.5,0.4330127018922193,0.25,True,True
