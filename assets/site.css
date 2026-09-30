@@ -10,6 +10,7 @@
 .scroll-hint{display:none}@media(max-width:680px){.scroll-hint{display:block;font-size:.6rem;margin-top:6px;color:var(--muted)}}
 
 .workflow-figure{margin:0 0 36px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.wordmark>span:first-child,.hero h1>span{color:#c85224}
 .workflow-figure img{display:block;width:100%;height:auto}
 .workflow-figure figcaption{padding:22px 26px;background:var(--surface);color:var(--muted);font-size:.84rem;line-height:1.85}
 .workflow-figure figcaption strong{color:var(--fg)}
